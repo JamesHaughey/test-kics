@@ -1,0 +1,20 @@
+name: Kics Scan
+on:
+  pull_request:
+
+jobs:
+  Scan_Kics:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v3
+    # Scan Iac with kics
+    - name: run kics Scan
+      uses: checkmarx/kics-github-action@v1.6.1
+      with:
+        path: '.'
+        output_path: myResults/
+    # Display the results in json format
+    - name: display kics results
+      run: |
+        cat myResults/results.json
