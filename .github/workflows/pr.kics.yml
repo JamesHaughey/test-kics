@@ -14,6 +14,7 @@ jobs:
       with:
         path: '.'
         output_path: myResults/
+        enable_annotations: 'true'
     # Display the results in json format
     - name: display kics results
       run: |
