@@ -1,6 +1,7 @@
 name: Kics Scan
 on:
   pull_request:
+  push:
 
 jobs:
   Scan_Kics:
@@ -12,7 +13,7 @@ jobs:
     - name: run kics Scan
       uses: checkmarx/kics-github-action@master
       with:
-        path: '.'
+        path: 'layer1,layer2'
         output_path: myResults/
     # Display the results in json format
     - name: display kics results
